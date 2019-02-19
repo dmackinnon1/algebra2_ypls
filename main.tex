@@ -1,0 +1,234 @@
+%%----------LaTeX template for teachers-----------------------------%%
+%%----------Samuel S. Watson----------------------------------------%% 
+%%----------January 2013--------------------------------------------%% 
+
+% http://math.mit.edu/~sswatson/latexforteachers.html
+
+\documentclass[12pt]{article} % Specifies font size
+%----------------PACKAGES-------------------------------------------%%
+\usepackage[margin=1in]{geometry} % Sets all four margins to 1 inch
+\usepackage[pdftex]{graphicx} % Allows inclusion of image files
+\usepackage{amssymb} % Access to extra math symbols
+\usepackage{amsmath} % Access to extra math symbols
+\usepackage{wrapfig} % Allows wrapping of text around figures
+\usepackage{calc} % Gives access to a basic calculator 
+\usepackage{array} % Gives custom commands for array environments 
+\usepackage{anyfontsize} % Lets you adjust the font size easily
+%-------------------------------------------------------------------%%
+
+%----------------COMMANDS-------------------------------------------%%
+\newcommand\blank{\underline{\hspace{2cm}}} % Gives a blank 
+\newcounter{prob} % A new counter for current problem number
+\setcounter{prob}{1} % Start the counter at the value 1
+\newcommand\itm{
+\fbox{\textbf{\theprob}} \refstepcounter{prob}
+} % Calls problem number
+\newcommand{\problem}[1]{\makebox[0.5cm]{\itm}   
+  \begin{minipage}[t]{\textwidth-0.5cm} #1 \end{minipage} 
+} % An environment for a problem statement on or more lines
+\newcommand{\pairofprobs}[2]{
+  \begin{minipage}[t]{0.5\textwidth}\itm #1 \end{minipage} 
+  \begin{minipage}[t]{0.5\textwidth}\itm #2 \end{minipage} 
+} % Fits two problems on a line
+\newcommand{\threeprobs}[3]{
+\begin{minipage}[t]{0.31\textwidth}\itm #1 \end{minipage} \hfill
+ \begin{minipage}[t]{0.31\textwidth}\itm #2 \end{minipage} \hfill 
+ \begin{minipage}[t]{0.31\textwidth}\itm #3 \end{minipage}
+} % Fits three problems on a line
+\newcommand{\fourprobs}[4]{
+\begin{minipage}[t]{0.21\textwidth}\itm #1 \end{minipage} \hfill
+ \begin{minipage}[t]{0.21\textwidth}\itm #2 \end{minipage} \hfill 
+ \begin{minipage}[t]{0.21\textwidth}\itm #3 \end{minipage} \hfill 
+ \begin{minipage}[t]{0.21\textwidth}\itm #4 \end{minipage}
+} % Fits four problems on a line
+
+
+\newcounter{choice} % Counter for multiple choice problems 
+\setcounter{choice}{1} % Start the counter at the value 1
+\newcommand\achoice{
+(\alph{choice}) \stepcounter{choice}
+} % Generates letter for multiple choice option
+\newcommand{\answers}[5]{\vspace*{-7mm} 
+  \begin{tabular}{l@{\hspace{1mm}}p{0.9\textwidth}}
+    \achoice & #1 \\ \achoice & #2 \\ \achoice & #3 \\ 
+    \achoice & #4 \\ \achoice & #5 \end{tabular}
+  \setcounter{choice}{1}
+} % Makes multiple-choice options 
+%---------------------------------
+
+% The commands below are for setting up arithmetic 
+% problems with the four basic operations. See examples 
+% in the CONTENT section  
+
+\newcommand\divi[2]{
+#1 \: \begin{array}{|l}
+\hline #2
+\end{array}
+}
+
+\newcommand\mult[2]{
+$\begin{array}{rr} 
+ & #1 \\ 
+ \times & #2 \\ \hline 
+ \end{array}$}
+ 
+\newcommand\addi[2]{
+  $\begin{array}{rr} 
+   &  #1 \\ 
+    + & #2 \\ \hline 
+  \end{array}$}
+
+\newcommand\subt[2]{
+  $\begin{array}{rr}
+    & #1 \\ 
+    - & #2 \\ \hline
+  \end{array}$}
+%-------------------------------------------------------------------%%
+
+%-----------FORMATTING----------------------------------------------%%
+\pagestyle{empty} % Ensures that no page numbers are printed
+\parskip = 0.2 in % Puts a little space between paragraphs 
+\parindent = 0.0 in % Enforces no indentation for paragraphs
+%-------------------------------------------------------------------%%
+
+%-----------USAGE EXAMPLES------------------------------------------%%
+% To try any of the examples below, uncomment them and paste 
+% them below the \begin{document} command in the CONTENT section. 
+
+% To set up a division problem such as 93 divided by 3:
+% \divi{3}{93}
+
+% To set up a muliplication problem such as 14 times 4:
+% \mult{14}{4}
+
+% To put two problems on the same line: 
+% \pairofprobs{\divi{3}{93}}{\mult{14}{4}} 
+
+% To include a 3cm vertical space between questions 
+% \vspace{3cm} 
+
+%--------------------------------------------------------------------%%
+
+%-----------CONTENT--------------------------------------------------%%
+\begin{document}
+
+{\fontsize{14}{17}\selectfont
+%%%%%%%%%%%%%%%%%% Part 1
+\begin{center}
+  \textsc{ YPLS Homework for February 26}
+\end{center}
+
+{$\textbf{Set A}$.} 
+Use the order of operations ($\textbf{BEDMAS}$) to evaluate the following.
+
+\threeprobs
+{$2+12\div 4 -1 $}
+{$1+3^2-3\times2 $}
+{$1+2\times 4 - 2^2$}
+
+\threeprobs
+{$(3-2)(2-3)\times 4$}
+{$(1+2+3+4)^2 \div 5 $}
+{$(-1)^2 - (9-8)^2 $}
+
+\setcounter{prob}{1}
+
+{$\textbf{Set B}$.}  Simplify each expression by collecting like-terms.
+
+\threeprobs
+{$2x -3y + 5x$}
+{$2(a-b) + b$}
+{$x +xy + yx -y$}
+
+\threeprobs
+{$x^2 +x + -3x + x^2$}
+{$a + ba + 3(ab +a)$}
+{$3(2x-4y)-2(x-y)$}
+
+\setcounter{prob}{1}
+
+{$\textbf{Set C}$.} Solve each equation to find the unknown value.
+
+\threeprobs
+{$x - 4 = 10$}
+{$3y=12$}
+{$\cfrac{2x+ 10}{x} = 4$}
+
+\threeprobs
+{$\cfrac{x}{3} -7 = -2$}
+{$6b+2 =44$}
+{$\cfrac{a}{10} = \cfrac{3}{2}+a$}
+
+\setcounter{prob}{1}
+
+{$\textbf{Set D}$.} Expand and simplify each expression.
+
+\threeprobs
+{$x(2x+1) -x$}
+{$(x+3)(x-2)$}
+{$(2x - 3)^2$}
+
+\threeprobs
+{$2y(3y-1) +2y$}
+{$(y-5)(y+5)$}
+{$(x^2+x+1)(2x-1)$}
+
+\setcounter{prob}{1}
+
+{$\textbf{Set E}$.} Evaluate if $x=-2$.
+
+\threeprobs
+{$3x + 2$}
+{$x^2-x+1$}
+{$-x + 1$}
+
+%\setcounter{prob}{1}
+%{$\textbf{Set F}$.} Factor each expression %fully.
+
+%\threeprobs
+%{$x^2 + 2x + 1$}
+%{$9x^2-4$}
+%{$x^2 +5x +6$}
+
+} % end font size setting
+
+\newpage
+\setcounter{prob}{1}
+{\fontsize{14}{17}\selectfont
+%%%%%%%%%%%%%%%%%% Part 3
+\begin{center}
+  \textsc{ Word Problems}
+\end{center}
+
+Use the strategy of your choice to solve these word problems.
+
+\problem{Dante has twice as many jelly beans as Carlos. Natalia has 4 more jelly beans than Carlos and Dante together. All together, Dante, Carlos, and Natalia have 58 jelly beans. How many jelly beans does Carlos have?}
+
+\problem{A tank is $\frac{2}{5}$ filled with water. When another $26$ liters of water are poured in, the tank becomes $\frac{5}{6}$ full. Find the capacity of the tank.}
+
+\problem{A piece of rope 3m 66cm long was cut into 2
+pieces. The longer piece was twice as long as the shorter piece. What was the length of the longer piece?}
+
+\problem{Samy had 130 stickers and Devi had 50 stickers.
+After Samy gave Devi some stickers, Samy had twice as many stickers as Devi. How many stickers did Samy give to Devi?} 
+
+\problem{Ali saved twice as much as Ramat. Maria saved
+\$60 more than Ramat. If they saved \$600 altogether, how much did
+Maria save?}
+
+\problem{$\frac{1}{3}$ of the beads in a box are red, $\frac{2}{3}$ of the remainder are blue and the rest are yellow. If there are $24$ red beads, how many yellow beads are there?}
+
+\problem{Minghua bought a bag of marbles. $\frac{1}{4}$ of the
+marbles were blue, $\frac{1}{8}$ were green and $\frac{1}{5}$ of the remainder were yellow. If there were $24$ yellow marbles, how many marbles did he buy?} 
+
+\problem{Rahim has 30\% more books than Gopal. If Rahim has 65 books, how many books does Gopal have?}
+
+\problem{John and Mary had \$350 altogether. After John
+spent $\frac{1}{2}$ of his money and Mary spent $\frac{1}{3}$ of her money, they each had an equal amount of money left. How much did they spend altogether?}
+
+}
+
+
+
+\end{document}
+%--------------------------------------------------------------------%%
